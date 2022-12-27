@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemon&family=Sulphur+Point&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+ /*
+  font-family: 'Lemon', cursive;
+  font-family: 'Sulphur Point', sans-serif;
+
+  oragn DE9151
+  red F34213
+  bl F34213
+  orgn cl BC5D2E
+  gr BBB8B2
+ */
+$ff-first: 'Lemon',cursive;
+$ff-second: 'Sulphur Point', sans-serif;
+$first-color : #2E2E3A;
+$second-color : #f34213;
+$third-color : #bc5d2e;
+$fourth-color : #BBB8BE;
+$fifth-color: #171718;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html, body,#root{
+  height: 100%;
+}
+
+#root{
+  height: 100%;
+  background-color: $first-color;
+  display: flex;
+  flex-direction: column;
+}
+
+header{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: .5rem;
+  .logo{
+    margin-top: 2rem;
+    text-align: center;
+    font-family: $ff-first;
+    font-size: 4rem;
+    color: $second-color;
+  }
+}
+
+nav{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  a {
+    font-family: $ff-second;
+    font-size: 1.5rem;
+    padding-inline: 1.5rem;
+    color: $fourth-color;
+    &:nth-child(2){
+      border-right: 2px solid $fifth-color;
+      border-left: 2px solid $fifth-color;
+
+    }
+    &:hover{
+      color: $second-color;
+      transition: all .3s ease;
+    }
+  }
+}
+
+main{
+  flex-grow: 1;
+  margin-inline:2rem;
+}
+
+footer{
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  p{
+    font-family: $ff-second;
+  }
+}
