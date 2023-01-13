@@ -1,10 +1,9 @@
-import SideBar from "../components/SideBar";
+
 const Main = () => {
   return (
     <main>
-      <SideBar />
-      <section className="text-naranja section">
-        hola
+      <section className="text-naranja section w-100 container">
+        
       </section>
     </main>
   );

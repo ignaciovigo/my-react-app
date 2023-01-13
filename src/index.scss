@@ -86,9 +86,6 @@ main {
     transition: transform 0.3s;
   }
 }
-.bg-canva {
-  background-color: map-get($colors, "n");
-}
 
 //Button
 
@@ -101,26 +98,8 @@ main {
   }
 }
 
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-  padding-inline: 1rem;
-  background-color: map-get($colors, "negro");
-  height: 100%;
-  width: 300px;
-  position: fixed;
-  transition: 0.3s;
-  z-index: 1000;
-  &.tight {
-    width: 85px;
-  }
-}
 .section{
-  position: relative;
-  left:85px;
-  z-index: 999;
+  
 }
 
 .effect-link {
@@ -136,19 +115,6 @@ main {
   }
 }
 
-.title-xp {
-  animation: aparicion;
-  animation-duration: .8s;
-}
-
-@keyframes aparicion {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 
 //lg
 @media screen and (max-width: 992px) {
