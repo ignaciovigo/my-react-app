@@ -1,24 +1,26 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { NavLink, Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import Logo from "./Logo";
 
 const NavBar = () => {
   return (
-    <Navbar variant="dark" className="py-1 bg-negro fixed-top">
-      <Container className="flex-wrap justify-content-center justify-content-sm-between">
-        <Navbar.Brand href="#home">
+    <Navbar variant="dark" className="py-1 bg-negro sticky-top">
+      <Container className="flex-wrap justify-content-center justify-content-sm-between align-items-center">
+        <Link to="/" className="text-decoration-none">
           <Logo className="ms-sm-0 ms-md-5" img={true} />
-        </Navbar.Brand>
-        <Nav>
-          <Nav.Item>
-            <Nav.Link className="effect-link">Home</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link className="effect-link me-5">Products</Nav.Link>
-          </Nav.Item>
-          <Nav.Item className="me-sm-4">
+        </Link>
+        <Nav className="gap-2 align-items-center">
+          <NavLink to="/" className="effect-link">
+            Home
+          </NavLink>
+
+          <NavLink to="/products" className="effect-link me-5">
+            Products
+          </NavLink>
+          <NavLink className="me-sm-4 effect-link" to="/cart">
             <CartWidget />
-          </Nav.Item>
+          </NavLink>
         </Nav>
       </Container>
     </Navbar>

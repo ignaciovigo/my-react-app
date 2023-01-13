@@ -1,10 +1,13 @@
-
+import {Routes, Route} from "react-router-dom"
+import Home from "./Home"
+import Products from "./Products";
 const Main = () => {
   return (
     <main>
-      <section className="text-naranja section w-100 container">
-        
-      </section>
+      <Routes>
+        <Route path="/" element={<Home/>}></Route>
+        <Route path="/products" element={<Products/>}></Route>
+      </Routes>
     </main>
   );
 };

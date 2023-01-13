@@ -70,6 +70,7 @@ body,
 main {
   flex-grow: 1;
   display: flex;
+  flex-direction: column;
   position: relative;
 }
 
@@ -92,17 +93,12 @@ main {
 .btn.btn-nav {
   background-color: map-get($colors, "negro-claro");
   border: none;
-  &:hover {
-    background-color: map-get($colors, "gris");
-    transition: 0.3s ease;
-  }
 }
 
-.section{
-  
-}
 
 .effect-link {
+  text-decoration: none;
+  color: #827f85;
   padding-bottom: 2px;
   background-image: linear-gradient(map-get($colors, "naranja") 0 0);
   background-position: 0% 100%;
@@ -110,6 +106,12 @@ main {
   background-repeat: no-repeat;
   transition: background-size .3s, background-position 0s 0.3s;
   &:hover {
+    color: #bbb8be;
+    background-position: 100% 100%;
+    background-size: 100% 2px;
+  }
+  &.active{
+    color: #bbb8be;
     background-position: 100% 100%;
     background-size: 100% 2px;
   }

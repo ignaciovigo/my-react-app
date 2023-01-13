@@ -1,18 +1,16 @@
 import Nav from "react-bootstrap/Nav";
-const SubNavBar = ({ ClassName }) => {
+import { NavLink } from "react-router-dom";
+const SubNavBar = ({ClassName}) => {
   return (
-    <Nav variant="tabs" defaultActiveKey="/home">
-      <Nav.Item>
-        <Nav.Link href="/home">Active</Nav.Link>
-      </Nav.Item>
-      <Nav.Item>
-        <Nav.Link eventKey="link-1">Option 2</Nav.Link>
-      </Nav.Item>
-      <Nav.Item >
-        <Nav.Link eventKey="disabled" disabled>
-          Disabled
-        </Nav.Link>
-      </Nav.Item>
+    <Nav
+      className={"bg-n justify-content-center p-1 " + ClassName}
+      defaultActiveKey="/products"
+    >
+      <NavLink to="/products" className="effect-link">All</NavLink>
+      <NavLink to="/category/1" className="effect-link">Electronics</NavLink>
+      <NavLink to="/category/2" className="effect-link">Jewelery</NavLink>
+      <NavLink to="/category/3" className="effect-link">Men's Clothing</NavLink>
+      <NavLink to="/categoty/4" className="effect-link">Women's Clothing</NavLink>
     </Nav>
   );
 };
