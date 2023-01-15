@@ -11,16 +11,9 @@ const NavBar = () => {
           <Logo className="ms-sm-0 ms-md-5" img={true} />
         </Link>
         <Nav className="gap-2 align-items-center">
-          <NavLink to="/" className="effect-link">
-            Home
-          </NavLink>
-
-          <NavLink to="/products" className="effect-link me-5">
-            Products
-          </NavLink>
-          <NavLink className="me-sm-4 effect-link" to="/cart">
-            <CartWidget />
-          </NavLink>
+          <NavLink to="/" className="effect-link">Home</NavLink>
+          <NavLink to="/products" className="effect-link me-5">Products</NavLink>
+          <NavLink className="me-sm-4 effect-link" to="/cart"><CartWidget /></NavLink>
         </Nav>
       </Container>
     </Navbar>

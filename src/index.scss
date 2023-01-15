@@ -52,6 +52,9 @@ $offcanvas-bg-color: map-get($colors, "n");
   .bg-#{$key} {
     background-color: #{$color};
   }
+  .border-#{$key} {
+    border: #{$color} solid;
+  }
 }
 
 html,
@@ -68,6 +71,8 @@ body,
 }
 
 main {
+  overflow: scroll;
+  height: 100vh;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -117,6 +122,20 @@ main {
   }
 }
 
+
+.card-img-overlay{
+  opacity: 50%;
+  transition: all .3s ease;
+  &:hover{
+    opacity: 100%;
+  }
+}
+.cd-link{
+  &:hover{
+    transform: scale(1.1);
+    transition: all .3s ease;
+  }
+}
 
 //lg
 @media screen and (max-width: 992px) {

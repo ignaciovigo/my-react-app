@@ -1,9 +1,9 @@
-const Home = () => {
-    return (
-        <section>
+import { Container } from "react-bootstrap";
 
-        </section>
-    );
-}
- 
+const Home = () => {
+  return (
+    <Container className="text-gris display-1 text-center">Home</Container>
+  );
+};
+
 export default Home;
