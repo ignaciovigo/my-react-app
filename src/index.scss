@@ -136,6 +136,13 @@ main {
     transition: all .3s ease;
   }
 }
+.item-link{
+  text-decoration: none;
+  font-style: italic;
+  &:hover{
+    color: map-get($colors,"marron" );
+  }
+}
 
 //lg
 @media screen and (max-width: 992px) {

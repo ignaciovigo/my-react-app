@@ -17,6 +17,7 @@ const Item = ({ product }) => {
           src={product.image}
           width="250px"
           height="250px"
+          className="rounded"
         />
         <Card.ImgOverlay className="d-flex justify-content-end align-items-end p-2 overflow-hidden">
           <Card.Text className="fs-6 fw-bold ff-base bg-negro rounded p-2 m-0 text-gris me-auto">

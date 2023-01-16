@@ -1,4 +1,5 @@
 import { Button, Col, Container, Image, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({ productDetail }) => {
   return (
@@ -16,13 +17,14 @@ const ItemDetail = ({ productDetail }) => {
             <h3 className="text-marron text-wrapped fs-3 fw-bold">
               {productDetail.title}
             </h3>
+            <p className="text-gris text-muted fs-5">category: <Link to={`/category/${productDetail.category}`} className="text-gris text-capitalize item-link">{productDetail.category}</Link></p>
           </Row>
           <Row className="overflow-y-scroll h-50">
             <p className="text-gris">{productDetail.description}</p>
           </Row>
           <Row>
             <Col>
-              <p className="fs-5 fw-bold ff-base p-2 m-0 text-gris">
+              <p className="fs-5 fw-bold ff-base m-0 text-gris">
                 <span className="text-muted me-1">Price:</span>
                 <span className="text-naranja">$</span>
                 {productDetail.price}
