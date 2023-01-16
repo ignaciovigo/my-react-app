@@ -3,14 +3,10 @@ import { Link } from "react-router-dom";
 
 const ItemDetail = ({ productDetail }) => {
   return (
-    <Container className="border-naranja bg-negro rounded d-flex justify-content-center align-items-center h-100 my-5 p-2">
+    <Container className="border-naranja bg-negro rounded d-flex justify-content-center align-items-center h-100 p-2">
       <Row className="align-items-center">
-        <Col xs={12} md={6} className="text-center">
-          <Image
-            src={productDetail.image}
-            fluid
-            className="rounded w-50"
-          ></Image>
+        <Col xs={12} md={6} sm={4} className="text-center">
+          <Image src={productDetail.image} fluid className="rounded" width="250px"></Image>
         </Col>
         <Col>
           <Row>
@@ -19,7 +15,7 @@ const ItemDetail = ({ productDetail }) => {
             </h3>
             <p className="text-gris text-muted fs-5">category: <Link to={`/category/${productDetail.category}`} className="text-gris text-capitalize item-link">{productDetail.category}</Link></p>
           </Row>
-          <Row className="overflow-y-scroll h-50">
+          <Row className="overflow-y-scroll overflow-scroll description-detail me-1">
             <p className="text-gris">{productDetail.description}</p>
           </Row>
           <Row>

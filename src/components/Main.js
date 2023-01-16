@@ -8,7 +8,7 @@ import SubNavBar from "./SubNavBar";
 const Main = () => {
   return (
     <main>
-      <SubNavBar ClassName="gap-5" />
+      <SubNavBar />
       <Routes>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/products" element={<ItemListContainer/>}></Route>

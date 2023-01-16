@@ -144,6 +144,19 @@ main {
   }
 }
 
+.list-subnav{
+  list-style: none;
+  margin: 0;
+  min-width: 100vw;
+  min-height: 5vh;
+  &-item{
+    padding-inline:10px ;
+  }
+
+}
+.description-detail{
+  max-height: 120px;
+}
 //lg
 @media screen and (max-width: 992px) {
 }
