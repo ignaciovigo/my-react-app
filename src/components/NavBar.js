@@ -8,7 +8,7 @@ const NavBar = () => {
     <Navbar variant="dark" className="py-1 bg-negro sticky-top">
       <Container className="flex-wrap justify-content-center justify-content-sm-between align-items-center">
         <Link to="/" className="text-decoration-none">
-          <Logo className="ms-sm-0 ms-md-5" img={true} />
+          <Logo className="ms-sm-0 ms-md-5" img />
         </Link>
         <Nav className="gap-2 align-items-center">
           <NavLink to="/" className="effect-link">Home</NavLink>
