@@ -157,6 +157,13 @@ main {
 .description-detail{
   max-height: 120px;
 }
+
+.navbar-toggler{
+  color: map-get($colors, "naranja" );
+  &:hover{
+    color: map-get($colors, "naranja" );
+  }
+}
 //lg
 @media screen and (max-width: 992px) {
 }
