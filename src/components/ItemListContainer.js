@@ -5,12 +5,12 @@ import ItemList from "./ItemList";
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const urlParams = useParams();
+
   useEffect(() => {
     const getProducts = async () => {
-      let category = urlParams.hasOwnProperty("categoryId"),
-        url = category
-          ? `https://fakestoreapi.com/products/category/${urlParams.categoryId}`
-          : `https://fakestoreapi.com/products`;
+      let url = urlParams.categoryId
+        ? `https://fakestoreapi.com/products/category/${urlParams.categoryId}`
+        : `https://fakestoreapi.com/products`;
       try {
         let resp = await fetch(url),
           data = await resp.json();

@@ -5,7 +5,7 @@ import ItemDetail from "./ItemDetail";
 const ItemDetailContainer = () => {
   const [productDetail, setProductDetail] = useState({});
   const urlParams = useParams();
-
+  
   useEffect(() => {
     const getItemDetail = async () => {
       try {
