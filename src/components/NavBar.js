@@ -6,7 +6,7 @@ import {FaHome} from "react-icons/fa"
 import {SiShopify} from "react-icons/si"
 const NavBar = () => {
   return (
-    <Navbar variant="dark" expand='sm' className="py-1 bg-negro sticky-top">
+    <Navbar variant="dark" expand='sm' className="py-1 bg-negro">
       <Container className="px-5">
         <Navbar.Brand>
           <Link to="/" className="text-decoration-none">
