@@ -3,13 +3,14 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 import { CgDetailsMore } from "react-icons/cg";
+import { cutTitle } from "./functions";
 const Item = ({ product }) => {
   return (
     <Col xs={10} sm={5} md={4} lg={2} className='p-3 p-lg-1'>
       <Card className='bg-negro h-100 effect-card'>
         <Card.Body className='p-1 d-flex justify-content-center align-items-center'>
           <Card.Title className='m-0 text-marron fs-6 text-center'>
-            {product.title}
+            {cutTitle(product.title)}
           </Card.Title>
         </Card.Body>
         <Card.Img
