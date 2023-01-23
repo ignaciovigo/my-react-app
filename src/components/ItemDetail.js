@@ -3,15 +3,17 @@ import { Link } from "react-router-dom";
 import { useCart } from "../context/CartProvider";
 import ItemCount from "./ItemCount";
 const ItemDetail = ({ productDetail }) => {
-   const {addProduct,setTotalProducts,totalProducts} = useCart()
+  const { addProduct } = useCart();
 
-  const addToCart = (counter) =>{
-     addProduct(productDetail,counter)
-     setTotalProducts(totalProducts + counter)
-  }
+  const addToCart = (counter) => {
+    addProduct(productDetail, counter);
+  };
 
   return (
-    <Container fluid className='border-naranja bg-negro rounded m-0  h-100 p-5 mt-5'>
+    <Container
+      fluid
+      className='border-naranja bg-negro rounded m-0  h-100 p-5 mt-5'
+    >
       <Row className='align-items-center'>
         <Col xs={12} md={6} sm={4} className='text-center'>
           <Image
@@ -36,7 +38,7 @@ const ItemDetail = ({ productDetail }) => {
               </Link>
             </p>
           </Row>
-          <Row className='overflow-y-scroll overflow-scroll description-detail me-1'>
+          <Row className='overflow-y-scroll overflow-auto description-detail me-1'>
             <p className='text-gris'>{productDetail.description}</p>
           </Row>
           <Row className='py-1'>
