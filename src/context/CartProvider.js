@@ -21,24 +21,47 @@ export function CartProvider({ children }) {
       newCart.push(pdct);
     }
     setCart(newCart);
-    console.log(newCart)
+    setTotalProducts(totalProducts + amount);
+    console.log("añadido", newCart);
   };
 
-  const deleteProduct = (id) =>{
+  const deleteProduct = (id, arr) => {
+    let index = arr.findIndex((pdct) => pdct.id === id);
+    arr.splice(index, 1);
+    console.log("deleted", arr);
+    setCart(arr);
+    setTotalProducts(amountProduct(arr));
+  };
+
+  const amountProduct = (arr) => {
+    return arr.reduce((total, e) => total + e.amount, 0);
+  };
+
+  const totalPrice = () => {
+    return cart.reduce((total, e) => total + e.price, 0);
+  };
+  const reduceAmount = (id) => {
     const newCart = [...cart];
-    let index = newCart.findIndex( pdct => pdct.id === id);
-    newCart.splice(index,1)
-    setCart(newCart)
-    setTotalProducts(amountProduct(newCart))
-  }
+    let index = newCart.findIndex((pdct) => pdct.id === id);
+    newCart[index].amount--;
+    if (newCart[index].amount !== 0) {
+      setCart(newCart);
+      setTotalProducts(amountProduct(newCart));
+    } else {
+      deleteProduct(id, newCart);
+    }
+    console.log("reducido", newCart);
+  };
 
-  const amountProduct = (arr) =>{    
-    return arr.reduce((total, e) => total + e.amount,0);
-  }
+  const incrementAmount = (id) => {
+    const newCart = [...cart];
+    let index = newCart.findIndex((pdct) => pdct.id === id);
+    newCart[index].amount++;
+    setCart(newCart);
+    setTotalProducts(amountProduct(newCart));
+    console.log("incrementado", newCart);
+  };
 
-  const totalPrice = () =>{
-    return cart.reduce((total,e) => total + e.price,0)
-  }
   const ctxValues = {
     cart,
     setCart,
@@ -46,7 +69,9 @@ export function CartProvider({ children }) {
     setTotalProducts,
     addProduct,
     deleteProduct,
-    totalPrice
+    totalPrice,
+    reduceAmount,
+    incrementAmount,
   };
 
   return <Provider value={ctxValues}>{children}</Provider>;
