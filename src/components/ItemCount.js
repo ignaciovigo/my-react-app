@@ -5,8 +5,7 @@ const ItemCount = ({onConfirm}) => {
   const [counter, setCounter] = useState(1);
 
   const handleCount = (e) => {
-    if (e.target.dataset.btn === "more") return setCounter(counter + 1);
-    return setCounter(counter - 1);
+    (e.target.dataset.btn === "more") ? setCounter(counter + 1) : setCounter(counter - 1)
   }
   const handleConfirm = () =>{
     onConfirm(counter)

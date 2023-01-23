@@ -1,10 +1,13 @@
-import { Button, Col, Container, Image, Row } from "react-bootstrap";
+import { Col, Container, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useCart } from "../context/CartProvider";
 import ItemCount from "./ItemCount";
 const ItemDetail = ({ productDetail }) => {
+   const {addProduct,setTotalProducts,totalProducts} = useCart()
 
   const addToCart = (counter) =>{
-    console.log(counter)
+     addProduct(productDetail,counter)
+     setTotalProducts(totalProducts + counter)
   }
 
   return (
