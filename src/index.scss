@@ -80,6 +80,7 @@ main {
   flex-grow: 1;
   flex-direction: column;
   min-height: 95vh;
+  padding-inline: 2vw;
 }
 
 .logo {
@@ -143,10 +144,15 @@ main {
   }
 }
 .cd-link {
-  &:hover {
+  &:hover{
+    svg{
+      color: map-get($colors,'negro' );
+    }
     transform: scale(1.1);
     transition: all 0.3s ease;
+    background-color: map-get($colors,'naranja' );;
   }
+  
 }
 .item-link {
   text-decoration: none;
