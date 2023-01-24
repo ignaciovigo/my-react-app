@@ -1,12 +1,7 @@
 import { Link } from "react-router-dom";
 import { GoPlus, GoDash, GoTrashcan } from "react-icons/go";
 import { cutTitle } from "./functions";
-const CartTableRow = ({
-  pdct,
-  incrementAmount,
-  reduceAmount,
-  removeProduct,
-}) => {
+const CartTableRow = ({pdct,incrementAmount,reduceAmount,removeProduct}) => {
   const handleClick = (e) => {
     let idBtn = Number(e.target.dataset.pdctid);
     if (e.target.dataset.btn === "reduce") return reduceAmount(idBtn);

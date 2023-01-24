@@ -8,7 +8,7 @@ const CartTable = () => {
     deleteProduct(id, [...cart]);
   };
   return (
-    <Table size='sm' hover variant='dark' className='fs-6 fw-bold '>
+    <Table  size='xs' hover variant='dark' className='fs-6 fw-bold m-4'>
       <thead>
         <tr>
           <th></th>
