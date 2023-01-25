@@ -2,6 +2,7 @@ import { Col, Container, Image, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useCart } from "../context/CartProvider";
 import ItemCount from "./ItemCount";
+import { BsLink45Deg } from "react-icons/bs";
 const ItemDetail = ({ productDetail }) => {
   const { addProduct } = useCart();
 
@@ -10,10 +11,7 @@ const ItemDetail = ({ productDetail }) => {
   };
 
   return (
-    <Container
-      fluid
-      className='border-naranja bg-negro rounded m-0  h-100 p-5 mt-5'
-    >
+    <Container fluid className='border-naranja bg-negro rounded m-0  h-100 p-5'>
       <Row className='align-items-center'>
         <Col xs={12} md={6} sm={4} className='text-center'>
           <Image
@@ -35,6 +33,7 @@ const ItemDetail = ({ productDetail }) => {
                 className='text-gris text-capitalize item-link'
               >
                 {productDetail.category}
+                <BsLink45Deg />
               </Link>
             </p>
           </Row>

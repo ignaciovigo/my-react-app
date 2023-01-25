@@ -81,6 +81,7 @@ main {
   flex-direction: column;
   min-height: 95vh;
   padding-inline: 2vw;
+  gap: 1rem;
 }
 
 .logo {
@@ -213,6 +214,13 @@ main {
     pointer-events: none;
   }
 }
+
+.list-card-overflow{
+  height: 500px;
+  overflow-y:scroll;
+}
+
+
 //lg
 @media screen and (max-width: 992px) {
 }
