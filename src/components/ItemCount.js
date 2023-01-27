@@ -1,18 +1,18 @@
-import { useState } from "react";
-import { Col, Row } from "react-bootstrap";
-import { GoPlus, GoDash } from "react-icons/go";
+import { useState } from 'react'
+import { Col, Row } from 'react-bootstrap'
+import { GoPlus, GoDash } from 'react-icons/go'
 const ItemCount = ({ onConfirm }) => {
-  const [counter, setCounter] = useState(1);
+  const [counter, setCounter] = useState(1)
 
   const handleCount = (e) => {
-    e.target.dataset.btn === "more"
+    e.target.dataset.btn === 'more'
       ? setCounter(counter + 1)
-      : setCounter(counter - 1);
-  };
+      : setCounter(counter - 1)
+  }
   const handleConfirm = () => {
-    onConfirm(counter);
-    setCounter(1);
-  };
+    onConfirm(counter)
+    setCounter(1)
+  }
   return (
     <Row className='gap-2 py-2'>
       <Col sm={6} md={6} className='text-center flex-nowrap'>
@@ -39,7 +39,7 @@ const ItemCount = ({ onConfirm }) => {
         </button>
       </Col>
     </Row>
-  );
-};
+  )
+}
 
-export default ItemCount;
+export default ItemCount

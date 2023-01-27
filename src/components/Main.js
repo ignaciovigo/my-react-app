@@ -1,24 +1,24 @@
-import {Routes, Route} from "react-router-dom"
-import Cart from "./Cart";
-import Home from "./Home"
-import ItemDetailContainer from "./ItemDetailContainer";
-import ItemListContainer from "./ItemListContainer";
-import NotFound from "./NotFound";
-import SubNavBar from "./SubNavBar";
+import { Routes, Route } from 'react-router-dom'
+import Cart from './Cart'
+import Home from './Home'
+import ItemDetailContainer from './ItemDetailContainer'
+import ItemListContainer from './ItemListContainer'
+import NotFound from './NotFound'
+import SubNavBar from './SubNavBar'
 const Main = () => {
   return (
     <main>
       <SubNavBar />
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/products" element={<ItemListContainer/>}></Route>
-        <Route path="/category/:categoryId" element={<ItemListContainer/>}></Route>
-        <Route path="/item/:id" element={<ItemDetailContainer/>}></Route>
-        <Route path="/cart" element={<Cart/>}></Route>
-        <Route path="*" element={<NotFound/>}></Route>
+        <Route path='/' element={<Home />} />
+        <Route path='/products' element={<ItemListContainer />} />
+        <Route path='/category/:categoryId' element={<ItemListContainer />} />
+        <Route path='/item/:id' element={<ItemDetailContainer />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </main>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main

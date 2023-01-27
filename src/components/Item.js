@@ -1,9 +1,9 @@
-import { Col, Row } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
-import { Link } from "react-router-dom";
-import { FaPlus } from "react-icons/fa";
-import { CgDetailsMore } from "react-icons/cg";
-import { cutTitle } from "./functions";
+import { Col } from 'react-bootstrap'
+import Card from 'react-bootstrap/Card'
+import { Link } from 'react-router-dom'
+import { FaPlus } from 'react-icons/fa'
+import { CgDetailsMore } from 'react-icons/cg'
+import { cutTitle } from './functions'
 const Item = ({ product }) => {
   return (
     <Col xs={10} sm={5} md={4} lg={2} className='p-3 p-lg-1'>
@@ -30,15 +30,15 @@ const Item = ({ product }) => {
             to={`/item/${product.id}`}
             className='bg-negro p-2 rounded-circle cd-link'
           >
-            <CgDetailsMore className='fs-5 m-1 text-naranja'></CgDetailsMore>
+            <CgDetailsMore className='fs-5 m-1 text-naranja' />
           </Link>
           <Card.Text className='bg-negro p-2 rounded-circle cd-link'>
-            <FaPlus className='fs-5 m-1 text-naranja'></FaPlus>
+            <FaPlus className='fs-5 m-1 text-naranja' />
           </Card.Text>
         </Card.ImgOverlay>
       </Card>
     </Col>
-  );
-};
+  )
+}
 
-export default Item;
+export default Item

@@ -1,7 +1,7 @@
-import { FaShoppingCart } from "react-icons/fa";
-import { useCart } from "../context/CartProvider";
+import { FaShoppingCart } from 'react-icons/fa'
+import { useCart } from '../context/CartProvider'
 const CartWidget = () => {
-  const { totalProducts } = useCart();
+  const { totalProducts } = useCart()
   return (
     <>
       <button type='button' className='btn btn-nav position-relative mt-2'>
@@ -12,7 +12,7 @@ const CartWidget = () => {
         </span>
       </button>
     </>
-  );
-};
+  )
+}
 
-export default CartWidget;
+export default CartWidget

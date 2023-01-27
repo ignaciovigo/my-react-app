@@ -1,8 +1,8 @@
-import { Card } from "react-bootstrap";
-import { useCart } from "../context/CartProvider";
+import { Card } from 'react-bootstrap'
+import { useCart } from '../context/CartProvider'
 
 const PurchaseSummary = () => {
-  const { totalPrice } = useCart();
+  const { totalPrice } = useCart()
   return (
     <Card className='bg-n h-100'>
       <Card.Header className='text-naranja fs-3 ff-base'>
@@ -20,7 +20,7 @@ const PurchaseSummary = () => {
         <button className='btn-count px-4 py-2 mt-4'>Buy</button>
       </Card.Body>
     </Card>
-  );
-};
+  )
+}
 
-export default PurchaseSummary;
+export default PurchaseSummary

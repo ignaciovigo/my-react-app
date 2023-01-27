@@ -1,13 +1,13 @@
-import { Row } from "react-bootstrap";
-import Item from "./Item";
+import { Row } from 'react-bootstrap'
+import Item from './Item'
 const ItemList = ({ products }) => {
   return (
-    <Row className="justify-content-center">
+    <Row className='justify-content-center'>
       {products.map((product) => (
-        <Item product={product} key={product.id}></Item>
+        <Item product={product} key={product.id} />
       ))}
     </Row>
-  );
-};
+  )
+}
 
-export default ItemList;
+export default ItemList

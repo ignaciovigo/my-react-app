@@ -1,31 +1,31 @@
-import { Col, ListGroup } from "react-bootstrap";
-import { GoDash, GoPlus, GoTrashcan } from "react-icons/go";
-import { Link } from "react-router-dom";
-import { cutTitle } from "./functions";
+import { Col, ListGroup } from 'react-bootstrap'
+import { GoDash, GoPlus, GoTrashcan } from 'react-icons/go'
+import { Link } from 'react-router-dom'
+import { cutTitle } from './functions'
 
 const CartListItem = ({
   pdct,
   incrementAmount,
   reduceAmount,
-  removeProduct,
+  removeProduct
 }) => {
   const handleClick = (e) => {
-    let idBtn = Number(e.target.dataset.pdctid);
-    if (e.target.dataset.btn === "reduce") return reduceAmount(idBtn);
-    if (e.target.dataset.btn === "trash") return removeProduct(idBtn);
-    incrementAmount(idBtn);
-  };
+    const idBtn = Number(e.target.dataset.pdctid)
+    if (e.target.dataset.btn === 'reduce') return reduceAmount(idBtn)
+    if (e.target.dataset.btn === 'trash') return removeProduct(idBtn)
+    incrementAmount(idBtn)
+  }
   return (
     <ListGroup.Item className='bg-negro fs-6 row d-flex fw-bold justify-content-around align-items-center text-light rounded gap-2 m-0'>
       <Col className='p-0 d-flex justify-content-start align-items-center'>
         <img src={pdct.image} alt='' width='60px' />
-        <div className="w-100">
-        <Link
-          className='text-capitalize item-link text-gris'
-          to={`/item/${pdct.id}`}
-        >
-          {cutTitle(pdct.title)}
-        </Link>
+        <div className='w-100'>
+          <Link
+            className='text-capitalize item-link text-gris'
+            to={`/item/${pdct.id}`}
+          >
+            {cutTitle(pdct.title)}
+          </Link>
         </div>
       </Col>
       <Col
@@ -79,7 +79,7 @@ const CartListItem = ({
         </div>
       </Col>
     </ListGroup.Item>
-  );
-};
+  )
+}
 
-export default CartListItem;
+export default CartListItem
