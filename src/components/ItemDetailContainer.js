@@ -5,13 +5,12 @@ import Loader from './Loader'
 
 const ItemDetailContainer = () => {
   const [productDetail, setProductDetail] = useState({})
-  const [isLoading, setisLoading] = useState(false)
+  const [isLoading, setisLoading] = useState(true)
   const urlParams = useParams()
 
   useEffect(() => {
     const getItemDetail = async () => {
       try {
-        setisLoading(true)
         const resp = await fetch(`https://fakestoreapi.com/products/${urlParams.id}`)
         const data = await resp.json()
         if (!resp.ok) throw { status: resp.status, statusText: resp.statusText }
