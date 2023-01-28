@@ -9,7 +9,7 @@ const CartList = () => {
   }
   return (
     <ListGroup flush className='bg-n gap-1 rounded p-1 m-1 mx-sm-2 mh-100 list-card-overflow'>
-      {totalProducts != 0
+      {totalProducts !== 0
         ? (
             cart.map((e) => {
               return (

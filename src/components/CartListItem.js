@@ -3,12 +3,7 @@ import { GoDash, GoPlus, GoTrashcan } from 'react-icons/go'
 import { Link } from 'react-router-dom'
 import { cutTitle } from './functions'
 
-const CartListItem = ({
-  pdct,
-  incrementAmount,
-  reduceAmount,
-  removeProduct
-}) => {
+const CartListItem = ({ pdct, incrementAmount, reduceAmount, removeProduct }) => {
   const handleClick = (e) => {
     const idBtn = Number(e.target.dataset.pdctid)
     if (e.target.dataset.btn === 'reduce') return reduceAmount(idBtn)

@@ -63,9 +63,7 @@ export function CartProvider ({ children }) {
 
   const ctxValues = {
     cart,
-    setCart,
     totalProducts,
-    setTotalProducts,
     addProduct,
     deleteProduct,
     totalPrice,
