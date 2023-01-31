@@ -15,7 +15,7 @@ const ItemDetail = ({ productDetail }) => {
       <Row className='align-items-center'>
         <Col xs={12} md={6} sm={4} className='text-center'>
           <Image
-            src={productDetail.image}
+            src={productDetail.thumbnail}
             fluid
             className='rounded'
             width='250px'

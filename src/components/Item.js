@@ -15,7 +15,7 @@ const Item = ({ product }) => {
         </Card.Body>
         <Card.Img
           variant='bottom'
-          src={product.image}
+          src={product.thumbnail}
           width='250px'
           height='250px'
           className='rounded'

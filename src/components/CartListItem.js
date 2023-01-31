@@ -5,7 +5,7 @@ import { cutTitle } from './functions'
 
 const CartListItem = ({ pdct, incrementAmount, reduceAmount, removeProduct }) => {
   const handleClick = (e) => {
-    const idBtn = Number(e.target.dataset.pdctid)
+    const idBtn = e.target.dataset.pdctid
     if (e.target.dataset.btn === 'reduce') return reduceAmount(idBtn)
     if (e.target.dataset.btn === 'trash') return removeProduct(idBtn)
     incrementAmount(idBtn)
@@ -13,7 +13,7 @@ const CartListItem = ({ pdct, incrementAmount, reduceAmount, removeProduct }) =>
   return (
     <ListGroup.Item className='bg-negro fs-6 row d-flex fw-bold justify-content-around align-items-center text-light rounded gap-2 m-0'>
       <Col className='p-0 d-flex justify-content-start align-items-center'>
-        <img src={pdct.image} alt='' width='60px' />
+        <img src={pdct.thumbnail} alt='' width='60px' />
         <div className='w-100'>
           <Link
             className='text-capitalize item-link text-gris'
