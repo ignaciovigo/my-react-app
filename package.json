@@ -29,8 +29,7 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest",
-      "./node_modules/standard/eslintrc.json"
+      "react-app/jest"
     ]
   },
   "browserslist": {
@@ -46,7 +45,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0",
-    "standard": "^17.0.0"
+    "gh-pages": "^4.0.0"
   }
 }
