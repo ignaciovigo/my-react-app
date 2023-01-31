@@ -4,10 +4,10 @@ import { useCart } from '../context/CartProvider'
 import ItemCount from './ItemCount'
 import { BsLink45Deg } from 'react-icons/bs'
 const ItemDetail = ({ productDetail }) => {
-  const { addProduct } = useCart()
+  const { addProduct, options } = useCart()
 
   const addToCart = (counter) => {
-    addProduct(productDetail, counter)
+    addProduct( productDetail, counter )
   }
 
   return (
@@ -47,7 +47,10 @@ const ItemDetail = ({ productDetail }) => {
               {productDetail.price}
             </p>
           </Row>
-          <ItemCount onConfirm={addToCart} />
+          <Row>
+            <span className='text-muted fw-light'>( max amount {options.maxPerProduct} )</span>
+          </Row>
+          <ItemCount onConfirm={addToCart} options={options} />
         </Col>
       </Row>
     </Container>

@@ -2,7 +2,10 @@ import { Card } from 'react-bootstrap'
 import { useCart } from '../context/CartProvider'
 
 const PurchaseSummary = () => {
-  const { totalPrice } = useCart()
+  const { totalPrice,cart } = useCart()
+  console.log(cart)
+  const activeBuy = cart.every(  e => e.isStock && e.sell)
+  console.log(activeBuy)
   return (
     <Card className='bg-n h-100'>
       <Card.Header className='text-naranja fs-3 ff-base'>
@@ -17,7 +20,7 @@ const PurchaseSummary = () => {
           <span className='text-muted'>TOTAL:</span>
           <span className='text-light'>$ {totalPrice().toFixed(2)}</span>
         </div>
-        <button className='btn-count px-4 py-2 mt-4'>Buy</button>
+        <button className='btn-count px-4 py-2 mt-4' disabled={!activeBuy} >Buy</button>
       </Card.Body>
     </Card>
   )

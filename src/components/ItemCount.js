@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Col, Row } from 'react-bootstrap'
 import { GoPlus, GoDash } from 'react-icons/go'
-const ItemCount = ({ onConfirm }) => {
+const ItemCount = ({ onConfirm, options }) => {
   const [counter, setCounter] = useState(1)
 
   const handleCount = (e) => {
@@ -15,7 +15,7 @@ const ItemCount = ({ onConfirm }) => {
   }
   return (
     <Row className='gap-2 py-2'>
-      <Col sm={6} md={6} className='text-center flex-nowrap'>
+      <Col sm={6} md={6} className='text-center flex-nowrap'>        
         <button
           onClick={handleCount}
           disabled={counter === 1}
@@ -26,7 +26,7 @@ const ItemCount = ({ onConfirm }) => {
         <span className='text-center text-gris px-3'>{counter}</span>
         <button
           onClick={handleCount}
-          disabled={counter === 10}
+          disabled={counter >= options.maxPerProduct}
           className='btn-count'
           data-btn='more'
         >

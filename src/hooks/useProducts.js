@@ -16,7 +16,9 @@ export default function useProducts({ urlParams }){
             
             if (productsDocs.empty) throw new Error('ha ocurrido un error al obtener los datos del servidor')
             const doc = productsDocs.docs.map( e => {
-              return { id: e.id, ...e.data() }
+              const {stock, ...productData} = e.data()
+              productData.id = e.id
+              return productData
             })
             setProducts(doc)
           } catch (err) {

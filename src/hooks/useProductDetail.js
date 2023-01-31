@@ -14,9 +14,8 @@ export default function useProductDetail({ urlParams }){
             let docRef = doc(db,'products',urlParams.id);
             const docSnap = await getDoc(docRef)
             if (!docSnap.exists()) throw new Error('El producto solicitado no existe')
-            const obj = docSnap.data()
+            const {stock, ...obj} = docSnap.data()
             obj.id = docSnap.id
-            console.log(obj)
             setProductDetail(obj)
             setisLoading(false)
           } catch (err) {
