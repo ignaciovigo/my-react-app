@@ -4,8 +4,8 @@ import ItemDetail from './ItemDetail'
 import Loader from './Loader'
 
 const ItemDetailContainer = () => {
-  const urlParams = useParams()
-  const { productDetail, isLoading } = useProductDetail({urlParams})
+  const { id } = useParams()
+  const { productDetail, isLoading } = useProductDetail({ id })
   
   return (!isLoading) ? <ItemDetail productDetail={productDetail} /> : <Loader />
 }
