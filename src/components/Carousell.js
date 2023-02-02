@@ -1,12 +1,18 @@
 import { Col, Row } from 'react-bootstrap'
 import Card from 'react-bootstrap/Card'
 import Carousel from 'react-bootstrap/Carousel'
+import ItemListContainer from './ItemListContainer'
+import useProducts from '../hooks/useProducts'
+import ItemList from './ItemList'
 
 function Carousell () {
+  const { products } = useProducts(null,'price','<',20) 
+  console.log(products) 
   return (
     <Carousel indicators={false} wrap={false}>
       <Carousel.Item>
-        <Row className='justify-content-center align-items-center fs-6'>
+        <ItemList products={products.slice(0,4)} />
+        {/* <Row className='justify-content-center align-items-center fs-6'>
           <Col xs={12} className='d-flex justify-content-center'>
             <Card style={{ width: '18rem' }} className='flex-row'>
               <Card.Img variant='top' src='holder.js/100px180' />
@@ -51,7 +57,7 @@ function Carousell () {
               </Card.Body>
             </Card>
           </Col>
-        </Row>
+        </Row> */}
       </Carousel.Item>
     </Carousel>
   )

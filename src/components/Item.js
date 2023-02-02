@@ -20,7 +20,7 @@ const Item = ({ product }) => {
           height='250px'
           className='rounded'
         />
-        <Card.ImgOverlay className='d-flex justify-content-end align-items-end p-2 overflow-hidden'>
+        <Card.ImgOverlay className='d-flex justify-content-end align-items-end p-2 gap-2 overflow-hidden'>
           <Card.Text className='fs-6 fw-bold ff-base bg-negro rounded p-2 m-0 text-gris me-auto'>
             <span className='text-muted me-1'>Price:</span>
             <span className='text-naranja'>$</span>
@@ -28,13 +28,13 @@ const Item = ({ product }) => {
           </Card.Text>
           <Link
             to={`/item/${product.id}`}
-            className='bg-negro p-2 rounded-circle cd-link'
+            className='bg-negro p-2 rounded-circle fs-6 cd-link'
           >
-            <CgDetailsMore className='fs-5 m-1 text-naranja' />
+            <CgDetailsMore className='m-1 text-naranja' />
           </Link>
-          <Card.Text className='bg-negro p-2 rounded-circle cd-link'>
-            <FaPlus className='fs-5 m-1 text-naranja' />
-          </Card.Text>
+          <button className='bg-negro p-2 fs-6 rounded-circle cd-link border-0'>
+            <FaPlus className='m-1 text-naranja' />
+          </button>
         </Card.ImgOverlay>
       </Card>
     </Col>

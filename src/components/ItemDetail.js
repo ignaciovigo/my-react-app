@@ -2,7 +2,7 @@ import { Col, Container, Image, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { useCart } from '../context/CartProvider'
 import ItemCount from './ItemCount'
-import { BsLink45Deg } from 'react-icons/bs'
+import { BsLink45Deg, BsInfoCircle } from 'react-icons/bs'
 const ItemDetail = ({ productDetail }) => {
   const { addProduct, options } = useCart()
 
@@ -47,8 +47,13 @@ const ItemDetail = ({ productDetail }) => {
               {productDetail.price}
             </p>
           </Row>
-          <Row>
-            <span className='text-muted fw-light'>( max amount {options.maxPerProduct} )</span>
+          <Row className=''>
+            <Col xs={4} md={6} className='' >
+            <span className='text-muted fw-light rounded-pill border-4 bg-n py-1 px-3 text-nowrap'>
+              <BsInfoCircle className='me-2 text-gris' />
+               max amount {options.maxPerProduct}
+            </span>
+            </Col>
           </Row>
           <ItemCount onConfirm={addToCart} options={options} />
         </Col>

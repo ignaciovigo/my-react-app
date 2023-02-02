@@ -14,7 +14,7 @@ const ItemCount = ({ onConfirm, options }) => {
     setCounter(1)
   }
   return (
-    <Row className='gap-2 py-2'>
+    <Row className='gap-2 py-2 justify-content-center'>
       <Col sm={6} md={6} className='text-center flex-nowrap'>        
         <button
           onClick={handleCount}

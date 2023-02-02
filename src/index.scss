@@ -32,7 +32,7 @@ $colors: (
   "gris": #bbb8be,
   "negro": #171718,
   "n": #212529,
-  'rojo-claro': #470e13
+  "rojo-claro": #470e13,
 );
 
 $offcanvas-bg-color: map-get($colors, "n");
@@ -69,6 +69,7 @@ body {
   background-color: map-get($colors, "negro-claro");
   display: flex;
   flex-direction: column;
+  min-height: 100%;
 }
 
 header {
@@ -80,7 +81,6 @@ main {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  min-height: 95vh;
   padding-inline: 2vw;
   gap: 1rem;
 }
@@ -172,10 +172,24 @@ main {
   overflow-x: scroll;
   list-style: none;
   margin: 0;
-  min-width: 200px;
   min-height: 5vh;
+  border-radius: 0px 0px 10px 10px;
   &-item {
     padding-inline: 10px;
+  }
+  &::-webkit-scrollbar {
+    width: 10px;
+    padding-block: 1rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: map-get($colors, "n");
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: map-get($colors, "marron");
+    border-radius: 100px;
   }
 }
 
@@ -206,12 +220,26 @@ main {
       color: map-get($colors, "naranja");
     }
   }
-  &:hover {
+  &:hover{
     background: map-get($colors, "naranja");
     color: map-get($colors, "negro");
   }
+  &:active{
+    background: map-get($colors, "naranja");
+    color: map-get($colors, "negro");
+    filter:opacity(.7);
+  }
   svg {
     pointer-events: none;
+  }
+  &.close{
+    background-color: map-get($colors,'negro-claro' );
+    color: map-get($colors, "gris");
+    border: none;
+    transition: all .3 ease;
+    &:hover{
+      background-color: #656466;
+    }
   }
 }
 
@@ -234,6 +262,31 @@ main {
   }
 }
 
+.cart-item{
+  transition: background .3s ease;
+  &:hover{
+    background-color: black;
+  }
+  &.bg-rojo-claro:hover{
+    background-color: #381114;
+  }
+}
+
+.cell {
+  border-color: map-get($colors, "naranja");
+  color: map-get($colors, "gris");
+  font-size: $ff-first;
+  &:focus,
+  &:focus-visible,
+  &:active,
+  &::selection {
+    background-color: map-get($colors, "n");
+    outline: none;
+    border-color: map-get($colors, "naranja");
+    box-shadow: 0 0 0 0.10rem map-get($colors, "naranja");
+    color: map-get($colors, "gris");
+  }
+}
 //lg
 @media screen and (max-width: 992px) {
 }

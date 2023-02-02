@@ -15,10 +15,10 @@ const CartListItem = ({ pdct, incrementAmount, reduceAmount, removeProduct,optio
   }
   return (
     <ListGroup.Item 
-    className={`fs-6 row d-flex fw-bold justify-content-around align-items-center text-light rounded gap-2 m-0 ${pdct.sell ?'bg-negro' : 'bg-rojo-claro'}`}>
+    className={`fs-6 row d-flex fw-bold justify-content-around align-items-center text-light cart-item rounded gap-2 m-0 ${pdct.sell ?'bg-negro' : 'bg-rojo-claro'}`}>
       <Col className='p-0 d-flex justify-content-start align-items-center'>
         <img src={pdct.thumbnail} alt='' width='60px' />
-        <div className='w-100 d-flex flex-column'>
+        <div className='d-flex flex-column mx-auto'>
           <Link
             className='text-capitalize item-link text-gris'
             to={`/item/${pdct.id}`}
