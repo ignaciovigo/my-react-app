@@ -1,11 +1,11 @@
 import { Card } from 'react-bootstrap'
 import { useCart } from '../context/CartProvider'
+import OrderModal from './OrderModal'
 
 const PurchaseSummary = () => {
   const { totalPrice,cart } = useCart()
-  console.log(cart)
-  const activeBuy = cart.every(  e => e.isStock && e.sell)
-  console.log(activeBuy)
+  const activeBuy =  (cart.length > 0 && cart.every(e => e.isStock && e.sell))
+  const total = totalPrice().toFixed(2)
   return (
     <Card className='bg-n h-100'>
       <Card.Header className='text-naranja fs-3 ff-base'>
@@ -13,14 +13,14 @@ const PurchaseSummary = () => {
       </Card.Header>
       <Card.Body className='d-flex flex-column gap-2'>
         <div className='bg-negro text-gris fs-5 p-2 d-flex justify-content-between'>
-          <span className='text-muted'>SUBTOTAL:</span>
-          <span>$ {totalPrice().toFixed(2)}</span>
+          <span className='text-muted'>SUBTOTAL :</span>
+          <span>$ {total}</span>
         </div>
         <div className='bg-negro text-gris fs-5 p-2 d-flex justify-content-between'>
-          <span className='text-muted'>TOTAL:</span>
-          <span className='text-light'>$ {totalPrice().toFixed(2)}</span>
+          <span className='text-muted'>TOTAL :</span>
+          <span className='text-light'>$ {total}</span>
         </div>
-        <button className='btn-count px-4 py-2 mt-4' disabled={!activeBuy} >Buy</button>
+        <OrderModal activeBuy={activeBuy} />
       </Card.Body>
     </Card>
   )
