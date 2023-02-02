@@ -7,7 +7,7 @@ import { SiShopify } from 'react-icons/si'
 const NavBar = () => {
   return (
     <Navbar variant='dark' expand='sm' className='py-1 bg-negro'>
-      <Container className='px-5'>
+      <Container fluid>
         <Navbar.Brand>
           <Link to='/' className='text-decoration-none'>
             <Logo className='ms-sm-0 ms-md-5' img />
@@ -26,7 +26,7 @@ const NavBar = () => {
           </Offcanvas.Header>
           <Offcanvas.Body>
             <Nav className='gap-2 justify-content-sm-end align-items-center w-100'>
-              <NavLink to='/' className='effect-link p-2 p-sm-0'> <span className='d-sm-none'> <FaHome className='fs-2 text-marron' /></span>  Home</NavLink>
+              <NavLink to='/' className='effect-link p-2 p-sm-0'> <span className='d-sm-none'> <FaHome className='fs-2 text-marron' /></span>Home</NavLink>
               <NavLink to='/products' className='effect-link p-2 p-sm-0'> <span className='d-sm-none'> <SiShopify className='fs-2 text-marron' /></span>Products</NavLink>
             </Nav>
           </Offcanvas.Body>
