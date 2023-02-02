@@ -2,7 +2,7 @@ import {  getDoc, doc } from "firebase/firestore"
 import { useEffect, useState } from "react"
 import { db } from "../services/firebase"
 
-export default function useProductDetail({ urlParams }){
+export default function useProductDetail({ id }){
   
   const [productDetail, setProductDetail] = useState({})
   const [isLoading, setisLoading] = useState(true)
@@ -11,7 +11,7 @@ export default function useProductDetail({ urlParams }){
 
         const getProducts = async () => {
           try {
-            let docRef = doc(db,'products',urlParams.id);
+            let docRef = doc(db,'products',id);
             const docSnap = await getDoc(docRef)
             if (!docSnap.exists()) throw new Error('El producto solicitado no existe')
             const {stock, ...obj} = docSnap.data()
@@ -24,7 +24,7 @@ export default function useProductDetail({ urlParams }){
         }
         getProducts()
 
-      }, [urlParams])
+      }, [])
 
     return { productDetail, isLoading}
 }
