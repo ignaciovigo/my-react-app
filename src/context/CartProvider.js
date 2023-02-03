@@ -85,7 +85,7 @@ export function CartProvider ({ children }) {
 
   const checkLimitAmount = (product) =>{
     //mutable method
-    (product.amount <= options.maxPerProduct) ? product.sell = true : product.sell = false;
+    product.sell = (product.amount <= options.maxPerProduct);
     checkStock(product).then( resp => product.isStock = resp )
     console.log(product)
   }
