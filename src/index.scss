@@ -286,7 +286,16 @@ main {
     box-shadow: 0 0 0 0.10rem map-get($colors, "naranja");
     color: map-get($colors, "gris");
   }
+  &.invalid{
+    box-shadow: 0 0 0 0.10rem #dc3545;
+    border-color: #dc3545;
+  }
 }
+.invalid{
+  color:#dc3545;
+  font-size: .875em;
+}
+
 //lg
 @media screen and (max-width: 992px) {
 }
