@@ -11,8 +11,9 @@ const CartListItem = ({ pdct, incrementAmount, reduceAmount, removeProduct,optio
     const idBtn = e.target.dataset.pdctid
     if (e.target.dataset.btn === 'reduce') return reduceAmount(idBtn)
     if (e.target.dataset.btn === 'trash') return removeProduct(idBtn)
-    incrementAmount(idBtn)
+    return incrementAmount(idBtn)
   }
+  console.log('list item',pdct.sell,pdct.isStock)
   return (
     <ListGroup.Item 
     className={`fs-6 row d-flex fw-bold justify-content-around align-items-center text-light cart-item rounded gap-2 m-0 ${pdct.sell ?'bg-negro' : 'bg-rojo-claro'}`}>
@@ -57,7 +58,7 @@ const CartListItem = ({ pdct, incrementAmount, reduceAmount, removeProduct,optio
               onClick={handleClick}
               className='btn-count ms-2'
               data-pdctid={pdct.id}
-              disabled={pdct.amount >= options.maxPerProduct}
+              disabled={(pdct.amount >= options.maxPerProduct)}
             >
               <GoPlus />
             </button>

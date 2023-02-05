@@ -66,6 +66,7 @@ export function CartProvider ({ children }) {
     const newCart = [...cart]
     const index = newCart.findIndex((pdct) => pdct.id === id)
     newCart[index].amount++
+    checkLimitAmount(newCart[index])
     setCart(newCart)
     setTotalProducts(amountProduct(newCart))
     console.log('incrementado', newCart)
@@ -79,17 +80,23 @@ export function CartProvider ({ children }) {
       const { stock } = resp.data()
       console.log('stock: ',stock)
       console.log('amount: ', product.amount)
-      return (stock > 0 && stock >= product.amount )
+      return (stock > 0 && product.amount <= stock )
     })
   }
 
   const checkLimitAmount = (product) =>{
     //mutable method
     product.sell = (product.amount <= options.maxPerProduct);
-    checkStock(product).then( resp => product.isStock = resp )
-    console.log(product)
+    checkStock(product).then( resp =>{
+      product.isStock = resp 
+      console.log(product)
+    }) 
   }
 
+  const restartCart = () =>{
+    setCart([])
+    setTotalProducts(0)
+  }
   
   const ctxValues = {
     cart,
@@ -99,7 +106,8 @@ export function CartProvider ({ children }) {
     deleteProduct,
     totalPrice,
     reduceAmount,
-    incrementAmount
+    incrementAmount,
+    restartCart
   }
 
   return <Provider value={ctxValues}>{children}</Provider>

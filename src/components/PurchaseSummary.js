@@ -1,11 +1,12 @@
-import { Card } from 'react-bootstrap'
-import { useCart } from '../context/CartProvider'
-import OrderModal from './OrderModal'
+import { Card } from "react-bootstrap";
+import { useCart } from "../context/CartProvider";
+import OrderModal from "./OrderModal";
 
 const PurchaseSummary = () => {
-  const { totalPrice,cart } = useCart()
-  const activeBuy =  (cart.length > 0 && cart.every(e => e.isStock && e.sell))
-  const total = totalPrice().toFixed(2)
+  const { totalPrice, cart, restartCart } = useCart();
+  const activeBuy = cart.length > 0 && cart.every((e) => e.isStock && e.sell);
+  const total = totalPrice().toFixed(2);
+
   return (
     <Card className='bg-n h-100'>
       <Card.Header className='text-naranja fs-3 ff-base'>
@@ -20,10 +21,15 @@ const PurchaseSummary = () => {
           <span className='text-muted'>TOTAL :</span>
           <span className='text-light'>$ {total}</span>
         </div>
-        <OrderModal activeBuy={activeBuy} />
+        <OrderModal
+          activeBuy={activeBuy}
+          cart={cart}
+          totalPrice={totalPrice}
+          restartCart={restartCart}
+        />
       </Card.Body>
     </Card>
-  )
-}
+  );
+};
 
-export default PurchaseSummary
+export default PurchaseSummary;
