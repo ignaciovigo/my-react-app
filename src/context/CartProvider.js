@@ -1,6 +1,7 @@
 import { useContext, createContext, useState } from 'react'
 import { db } from '../services/firebase'
 import { doc, getDoc } from 'firebase/firestore'
+import { toast } from 'react-toastify'
 
 const ctx = createContext()
 const Provider = ctx.Provider
@@ -9,10 +10,11 @@ export const useCart = () => {
   return useContext(ctx)
 }
 
+const options = {maxPerProduct: 5}
+
 export function CartProvider ({ children }) {
   const [cart, setCart] = useState([])
   const [totalProducts, setTotalProducts] = useState(0)
-  const [options,setOptions]= useState({maxPerProduct: 5})
   const [itemStock,setItemStock] = useState(false)
 
   const addProduct = (pdct, amount) => {
@@ -28,6 +30,10 @@ export function CartProvider ({ children }) {
       checkLimitAmount(copy)
       newCart.push(copy)
     }
+    toast.success(`${pdct.title}x${amount} Added to cart.`,{
+      autoClose:1500,
+      pauseOnHover:false
+    })
     setCart(newCart)
     setTotalProducts(totalProducts + amount)
     console.log('añadido', newCart)
@@ -40,6 +46,10 @@ export function CartProvider ({ children }) {
     console.log('deleted', arr)
     setCart(arr)
     setTotalProducts(amountProduct(arr))
+    toast.error(`Product removed`,{
+      autoClose:1500,
+      pauseOnHover:false
+    })
   }
 
   const amountProduct = (arr) => {
@@ -96,6 +106,10 @@ export function CartProvider ({ children }) {
     setCart([])
     setTotalProducts(0)
   }
+  const isExists = (id) =>{
+    let index = cart.findIndex(e => e.id === id)
+    return (index !== -1)
+  }
   
   const ctxValues = {
     cart,
@@ -106,7 +120,8 @@ export function CartProvider ({ children }) {
     totalPrice,
     reduceAmount,
     incrementAmount,
-    restartCart
+    restartCart,
+    isExists
   }
 
   return <Provider value={ctxValues}>{children}</Provider>

@@ -5,7 +5,7 @@ import { useCart } from '../context/CartProvider'
 const CartList = () => {
   const { cart, reduceAmount, incrementAmount, totalProducts, deleteProduct,options } = useCart()
   const removeProduct = (id) => {
-    deleteProduct(id, cart)
+    deleteProduct(id, [...cart])
   }
   return (
     <ListGroup variant='flush' className='bg-n gap-1 rounded p-1 m-1 mx-sm-2 mh-100 list-card-overflow'>

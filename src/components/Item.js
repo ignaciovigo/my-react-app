@@ -4,12 +4,26 @@ import { Link } from 'react-router-dom'
 import { FaPlus } from 'react-icons/fa'
 import { CgDetailsMore } from 'react-icons/cg'
 import { cutTitle } from './functions'
+import { useEffect, useState } from 'react'
+import { useCart } from '../context/CartProvider'
 const Item = ({ product }) => {
+  const [isAdd,setIsAdd] = useState(false)
+  const {addProduct,deleteProduct,cart,isExists} = useCart()
+
+  useEffect( () =>{
+    setIsAdd(isExists(product.id))
+  },[cart])
+
+  const handleClick = (e) =>{
+    const btn = e.target.dataset.btn;
+    (btn === 'add')? addProduct(product,1) : deleteProduct(product.id,[...cart]);
+    
+  }
   return (
     <Col xs={10} sm={5} md={4} lg={2} className='p-3 p-lg-1'>
-      <Card className='bg-negro h-100 effect-card'>
+      <Card className={`h-100 effect-card ${isAdd ? 'bg-naranja': 'bg-negro'}`}>
         <Card.Body className='p-1 d-flex justify-content-center align-items-center'>
-          <Card.Title className='m-0 text-marron fs-6 text-center'>
+          <Card.Title className='m-0 text- fs-6 text-center'>
             {cutTitle(product.title)}
           </Card.Title>
         </Card.Body>
@@ -32,8 +46,8 @@ const Item = ({ product }) => {
           >
             <CgDetailsMore className='m-1 text-naranja' />
           </Link>
-          <button className='bg-negro p-2 fs-6 rounded-circle cd-link border-0'>
-            <FaPlus className='m-1 text-naranja' />
+          <button onClick={handleClick} data-btn={isAdd ? 'remove' : 'add'} className='bg-negro p-2 fs-6 rounded-circle cd-link border-0'>
+            <FaPlus className={`m-1 pe-none text-naranja ${isAdd? 'rotate': null}`} />
           </button>
         </Card.ImgOverlay>
       </Card>

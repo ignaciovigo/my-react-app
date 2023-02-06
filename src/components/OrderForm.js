@@ -1,14 +1,15 @@
 import { serverTimestamp } from "firebase/firestore";
 import { useState } from "react";
-import { Form } from "react-bootstrap";
+import { Form, Spinner } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { regexAddress, regexCity, regexEmail } from "../logic/regexValidations";
 import {
   AddOrder,
   getProductById,
   updateStockProduct,
 } from "../services/firebase";
-import Loader from "./Loader";
+
 
 const OrderForm = ({ cart, totalPrice,handleClose,restartCart }) => {
   const {
@@ -36,14 +37,17 @@ const OrderForm = ({ cart, totalPrice,handleClose,restartCart }) => {
         })
       })
       setIsLoading(false);
-      handleClose();
-      restartCart();
+      toast.info(`Thanks for buy! here your ticket: ${userId}`,{
+        autoClose:15000
+      })
     });
   };
 
   const onSubmit = (dataUserForm) => {
     setIsLoading(true);
     sendOrder(dataUserForm, cart);
+    handleClose();
+    restartCart();
   };
 
   return (
@@ -129,8 +133,8 @@ const OrderForm = ({ cart, totalPrice,handleClose,restartCart }) => {
         </Form.Group>
       </div>
       <div className='d-flex justify-content-center'>
-        <button type='submit' className='btn-count p-3 px-5'>
-          {isLoading ? <Loader /> : "Confirm"}
+        <button type='submit' className='btn-count p-2 px-5'>
+          {isLoading ? <Spinner animation="border" role='status' /> : "Confirm"}
         </button>
       </div>
     </Form>
