@@ -16,7 +16,7 @@ const CartListItem = ({ pdct, incrementAmount, reduceAmount, removeProduct,optio
   console.log('list item',pdct.sell,pdct.isStock)
   return (
     <ListGroup.Item 
-    className={`fs-6 row d-flex fw-bold justify-content-around align-items-center text-light cart-item rounded gap-2 m-0 ${pdct.sell ?'bg-negro' : 'bg-rojo-claro'}`}>
+    className={`fs-6 row d-flex fw-bold justify-content-around align-items-center text-light cart-item rounded gap-2 m-0 ${pdct.sell && pdct.isStock ?'bg-negro' : 'bg-rojo-claro'}`}>
       <Col className='p-0 d-flex justify-content-start align-items-center'>
         <img src={pdct.thumbnail} alt='' width='60px' />
         <div className='d-flex flex-column mx-auto'>
@@ -81,7 +81,7 @@ const CartListItem = ({ pdct, incrementAmount, reduceAmount, removeProduct,optio
           </button>
         </div>
         <div>
-          {pdct.sell ? <FaCheckCircle className='text-success fs-5' /> : <BiXCircle  className='text-danger fs-5'/>}
+          {(pdct.sell && pdct.isStock) ? <FaCheckCircle className='text-success fs-5' /> : <BiXCircle  className='text-danger fs-5'/>}
         </div>
       </Col>
     </ListGroup.Item>

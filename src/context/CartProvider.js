@@ -13,6 +13,7 @@ export function CartProvider ({ children }) {
   const [cart, setCart] = useState([])
   const [totalProducts, setTotalProducts] = useState(0)
   const [options,setOptions]= useState({maxPerProduct: 5})
+  const [itemStock,setItemStock] = useState(false)
 
   const addProduct = (pdct, amount) => {
     //add product to cart
@@ -76,21 +77,19 @@ export function CartProvider ({ children }) {
     //mutable method
     const docRef = doc(db,'products',product.id);
     const docSnap = getDoc(docRef);
-    return docSnap.then(resp => {
+    docSnap.then(resp => {
       const { stock } = resp.data()
       console.log('stock: ',stock)
       console.log('amount: ', product.amount)
-      return (stock > 0 && product.amount <= stock )
+      product.isStock = (stock > 0 && product.amount <= stock )
+      setItemStock(product.isStock)
     })
   }
 
   const checkLimitAmount = (product) =>{
     //mutable method
     product.sell = (product.amount <= options.maxPerProduct);
-    checkStock(product).then( resp =>{
-      product.isStock = resp 
-      console.log(product)
-    }) 
+    checkStock(product)
   }
 
   const restartCart = () =>{
