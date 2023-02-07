@@ -10,8 +10,8 @@ import {
   updateStockProduct,
 } from "../services/firebase";
 
+const OrderForm = ({ cart, totalPrice, handleClose, restartCart }) => {
 
-const OrderForm = ({ cart, totalPrice,handleClose,restartCart }) => {
   const {
     register,
     handleSubmit,
@@ -30,24 +30,27 @@ const OrderForm = ({ cart, totalPrice,handleClose,restartCart }) => {
       total: totalPrice(),
     };
 
-    AddOrder(order).then((userId) => {
+    return AddOrder(order).then((ticket) => {
       order.items.forEach((e) => {
         getProductById(e.id).then((resp) => {
           updateStockProduct(e.id, e.amount, resp.stock);
         })
       })
-      setIsLoading(false);
-      toast.info(`Thanks for buy! here your ticket: ${userId}`,{
-        autoClose:15000
-      })
+      return ticket
+      
     });
   };
 
   const onSubmit = (dataUserForm) => {
     setIsLoading(true);
-    sendOrder(dataUserForm, cart);
-    handleClose();
-    restartCart();
+    sendOrder(dataUserForm, cart).then(ticket =>{
+      restartCart();
+      handleClose();
+      toast.info(`Thanks for buy! here's your ticket: ${ticket}`,{
+        autoClose:15000
+      })
+      setIsLoading(false);
+    })
   };
 
   return (
@@ -133,8 +136,8 @@ const OrderForm = ({ cart, totalPrice,handleClose,restartCart }) => {
         </Form.Group>
       </div>
       <div className='d-flex justify-content-center'>
-        <button type='submit' className='btn-count p-2 px-5'>
-          {isLoading ? <Spinner animation="border" role='status' /> : "Confirm"}
+        <button type='submit' disabled={isLoading} className='btn-count p-2 px-5'>
+          {isLoading ? <Spinner animation='border' role='status' /> : "Confirm"}
         </button>
       </div>
     </Form>

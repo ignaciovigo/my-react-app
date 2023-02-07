@@ -9,7 +9,7 @@ export default function useProducts(
   valueComparison
 ) {
   const [products, setProducts] = useState([]);
-
+  const [isLoading,setIsLoading] = useState(true)
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -32,6 +32,7 @@ export default function useProducts(
           return productData;
         });
         setProducts(doc);
+        setIsLoading(false)
       } catch (err) {
         console.error(err, err.message);
       }
@@ -39,5 +40,5 @@ export default function useProducts(
     getProducts();
   }, [urlParams]);
 
-  return { products };
+  return { products,isLoading };
 }

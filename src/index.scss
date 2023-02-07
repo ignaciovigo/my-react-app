@@ -76,7 +76,7 @@ $offcanvas-bg-color: map-get($colors, "n");
   }
   &__toast--success {
     color:map-get($colors,'success' );
-    background-color: rgba(88, 86, 86, 0.473);
+    background-color: rgba(85, 83, 83, 0.781);
     backdrop-filter: blur(8px);
   }
   &__toast--error{
@@ -84,10 +84,10 @@ $offcanvas-bg-color: map-get($colors, "n");
     background-color: rgba(110, 13, 13, 0.473);
     backdrop-filter: blur(8px);
   }
-  &__toast--error{
+  &__toast--info{
     color:map-get($colors,'gris' );
     background-color: map-get($colors, 'negro-claro');;
-  }
+  }  
 }
 
 .rotate{
@@ -174,11 +174,14 @@ main {
   }
 }
 
-.card-img-overlay {
-  opacity: 50%;
-  transition: all 0.3s ease;
-  &:hover {
-    opacity: 100%;
+.card-img{
+  object-fit: cover;
+  &-overlay {
+    opacity: 50%;
+    transition: all 0.3s ease;
+    &:hover {
+      opacity: 100%;
+    }
   }
 }
 .cd-link {
@@ -332,12 +335,7 @@ main {
   font-size: .875em;
 }
 
-//lg
-@media screen and (max-width: 992px) {
-}
-//md
-@media screen and (max-width: 768) {
-}
-//sm
-@media screen and (max-width: 576) {
+.back-modal{
+  background-color: #21252986;
+  backdrop-filter: blur(1px);
 }

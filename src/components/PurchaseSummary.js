@@ -27,6 +27,7 @@ const PurchaseSummary = () => {
           totalPrice={totalPrice}
           restartCart={restartCart}
         />
+        <p className="text-muted text-start">Once you have the ticket it will be sent to your email</p>
       </Card.Body>
     </Card>
   );
