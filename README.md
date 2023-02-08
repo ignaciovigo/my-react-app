@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+[![](https://svgur.com/i/q6b.svg)](https://the-zitro-app.vercel.app/)
+# Bienvenido al repositorio del proyecto Zitro
+## Introducción
+El proyecto Zitro es una app web desarrollada con React ,mediante [create-react-app](https://create-react-app.dev/), que contiene las funcionalidades principales de un ecommerce, las cuales son:
+- Visualizar productos desde una base de datos para que el usuario pueda interactuar con ellos.
+- Agregar,eliminar,aumentar o disminuir productos de un carrito.
+- Generar un ticket de compra al completar un formulario con los datos del usuario.
+- Guardar las ventas en una base de datos.
+- Actualizar el stock de los productos que se encuentran en la base de datos tras la compra.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Aclaraciones sobre el proyecto
+1. El componente [CartProvider](https://github.com/ignaciovigo/my-react-app/blob/main/src/context/CartProvider.js) se encarga de crear y proveer un contexto el cual posee la gestion del carrito.
+Dicho contexto es utilizado en componentes que hacen uso de su informacion [CartList](https://github.com/ignaciovigo/my-react-app/blob/main/src/components/CartList.js),[CartWidget](https://github.com/ignaciovigo/my-react-app/blob/main/src/components/CartWidget.js),[Item](https://github.com/ignaciovigo/my-react-app/blob/main/src/components/Item.js),[ItemDetail](https://github.com/ignaciovigo/my-react-app/blob/main/src/components/ItemDetail.js),[PurchaseSummary](https://github.com/ignaciovigo/my-react-app/blob/main/src/components/PurchaseSummary.js).
 
-In the project directory, you can run:
+2. La cantidad maxima de un producto es de 5, establecido en el componente [CartProvider](https://github.com/ignaciovigo/my-react-app/blob/main/src/context/CartProvider.js)
 
-### `npm start`
+3. Cada vez que se agrega o remueve productos del carrito, la aplicacion consulta hacia la base de datos
+si hay stock disponible, en caso de que no haya, el usuario sera avisado y no podra concretar su compra hasta que elimine o reduzca la cantidad del producto seleccionado.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. El proyecto tiene 2 hooks personalizados.
+    - **[useProducts()](https://github.com/ignaciovigo/my-react-app/blob/main/src/hooks/useProducts.js)** Permite 4 parametros, entre ellos parametros de url y valores que son necesarios para realizar una consulta especifica hacia el servicio de Cloud Firestore. Posee y retorna estados propios con la informacion obtenida de las consultas (un array con productos como objeto). Utilizado en
+    ([CarouselProducts](https://github.com/ignaciovigo/my-react-app/blob/main/src/components/CarouselProducts.js),[ItemListContainer](https://github.com/ignaciovigo/my-react-app/blob/main/src/components/ItemListContainer.js))
+    
+    - **[useProductDetail()](https://github.com/ignaciovigo/my-react-app/blob/main/src/hooks/useProductDetail.js)** Permite un solo parametro que es la id que utilizara para realizar una consulta sobre un solo producto en particular. Tambien posee estados propios que seran retornados.Utilizado en ([ItemDetailContainer](https://github.com/ignaciovigo/my-react-app/blob/main/src/components/ItemDetailContainer.js))
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Dependecias del proyecto
+- *Ademas de las que brinda create-react-app*
+- **bootstrap y react-bootstrap** Para el uso de clases y componentes de boostrap.
+- **react-hook-form**: Es un hook utilizado para facilitar la gestion de formularios.
+- **react-icons**: Nos provee de iconos.
+- **react-router-dom**: Utilizado para implementar el sistema de navegacion de la aplicacion.
+- **react-toastify**: Una libreria que permite disparar notificaciones en la interfaz.
+- **sass**: Preprocesador de CSS.
+- **firebase**: Nos provee del servicio Cloud Firestore, una base de datos NoSQL, para almacenar, sincronizar y consultar fácilmente datos (como de los productos o ventas).
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*El proyecto se encuentra desplegado, para verlo (Click Aquí)[https://the-zitro-app.vercel.app/]*
