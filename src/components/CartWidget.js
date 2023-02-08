@@ -1,5 +1,6 @@
 import { FaShoppingCart } from 'react-icons/fa'
 import { useCart } from '../context/CartProvider'
+
 const CartWidget = () => {
   const { totalProducts } = useCart()
   return (

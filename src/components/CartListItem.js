@@ -13,7 +13,6 @@ const CartListItem = ({ pdct, incrementAmount, reduceAmount, removeProduct,optio
     if (e.target.dataset.btn === 'trash') return removeProduct(idBtn)
     return incrementAmount(idBtn)
   }
-  console.log('list item',pdct.sell,pdct.isStock)
   return (
     <ListGroup.Item 
     className={`fs-6 row d-flex fw-bold justify-content-around align-items-center text-light cart-item rounded gap-2 m-0 ${pdct.sell && pdct.isStock ?'bg-negro' : 'bg-rojo-claro'}`}>

@@ -3,6 +3,7 @@ import { ImFire } from "react-icons/im";
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
 import CarouselProducts from "./CarouselProducts";
+
 const Home = () => {
   return (
     <Container

@@ -163,6 +163,9 @@ main {
     }
   }
   &-card {
+    animation-name: fadeIn;
+    animation-duration: .5s;
+    animation-timing-function: ease;
     &:hover {
       transition: all 0.3s ease;
       box-shadow: 1px 17px 70px 0px rgba(0, 0, 0, 0.75);
@@ -392,4 +395,14 @@ main {
     opacity: 1;
     background-image: url('../public/images/bannerfriday.jpg');
   }
+}
+
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+  
 }

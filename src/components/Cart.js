@@ -1,6 +1,6 @@
-import { Col, Row } from 'react-bootstrap'
-import CartList from './CartList'
-import PurchaseSummary from './PurchaseSummary'
+import { Col, Row } from "react-bootstrap";
+import CartList from "./CartList";
+import PurchaseSummary from "./PurchaseSummary";
 
 const Cart = () => {
   return (
@@ -12,7 +12,7 @@ const Cart = () => {
         <PurchaseSummary />
       </Col>
     </Row>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

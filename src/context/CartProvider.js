@@ -36,14 +36,12 @@ export function CartProvider ({ children }) {
     })
     setCart(newCart)
     setTotalProducts(totalProducts + amount)
-    console.log('añadido', newCart)
     
   }
 
   const deleteProduct = (id, arr) => {
     const index = arr.findIndex((pdct) => pdct.id === id)
     arr.splice(index, 1)
-    console.log('deleted', arr)
     setCart(arr)
     setTotalProducts(amountProduct(arr))
     toast.error(`Product removed`,{
@@ -70,7 +68,6 @@ export function CartProvider ({ children }) {
     } else {
       deleteProduct(id, newCart)
     }
-    console.log('reducido', newCart)
   }
 
   const incrementAmount = (id) => {
@@ -80,7 +77,6 @@ export function CartProvider ({ children }) {
     checkLimitAmount(newCart[index])
     setCart(newCart)
     setTotalProducts(amountProduct(newCart))
-    console.log('incrementado', newCart)
   }
 
   const checkStock = (product) =>{
@@ -89,8 +85,6 @@ export function CartProvider ({ children }) {
     const docSnap = getDoc(docRef);
     docSnap.then(resp => {
       const { stock } = resp.data()
-      console.log('stock: ',stock)
-      console.log('amount: ', product.amount)
       product.isStock = (stock > 0 && product.amount <= stock )
       setItemStock(product.isStock)
     })

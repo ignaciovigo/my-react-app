@@ -11,7 +11,6 @@ import {
 } from "../services/firebase";
 
 const OrderForm = ({ cart, totalPrice, handleClose, restartCart }) => {
-
   const {
     register,
     handleSubmit,
@@ -43,9 +42,9 @@ const OrderForm = ({ cart, totalPrice, handleClose, restartCart }) => {
 
   const onSubmit = (dataUserForm) => {
     setIsLoading(true);
+    handleClose();
     sendOrder(dataUserForm, cart).then(ticket =>{
       restartCart();
-      handleClose();
       toast.info(`Thanks for buy! here's your ticket: ${ticket}`,{
         autoClose:15000
       })
