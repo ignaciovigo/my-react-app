@@ -117,7 +117,6 @@ main {
   display: flex;
   flex-grow: 1;
   flex-direction: column;
-  padding-inline: 2vw;
   gap: 1rem;
 }
 
@@ -204,14 +203,14 @@ main {
 
 .list-subnav {
   backdrop-filter: blur(8px);
-  background-color: #2e2e3a9d;
+  background-color: #2e2e3ada;
   z-index: 1000;
   position: sticky;
   top: 68px;
   overflow-x: scroll;
   list-style: none;
   margin: 0;
-  min-height: 5vh;
+  min-height: 30px;
   border-radius: 0px 0px 10px 10px;
   &-item {
     padding-inline: 10px;
@@ -338,4 +337,59 @@ main {
 .back-modal{
   background-color: #21252986;
   backdrop-filter: blur(1px);
+}
+
+
+.backcarousel-1{
+  background-image: url('../public/images/banner2.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+}
+
+.banner-home{
+  @extend .backcarousel-1;
+  background-image: url('../public/images/bannerfriday.jpg');
+  width: 100%;
+  animation-name: transitionBackground;
+  animation-duration: 16s;
+  animation-timing-function: ease;
+  animation-iteration-count:infinite;
+  animation-delay: 2s;
+}
+
+
+@keyframes transitionBackground {
+  0%{
+    opacity: 0.5;
+  }
+  15%{
+    background-image: url('../public/images/banner3.jpg');
+    opacity: 1;
+
+  }
+  30%{
+    opacity: 0.5;
+
+  }
+  45%{
+    background-image: url('../public/images/banner4.avif');
+    opacity: 1;
+  }
+  60%{
+    opacity: 0.5;
+
+  }
+  75%{
+    opacity: 1;
+    background-image: url('../public/images/banner5.avif');
+  }
+  90%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 1;
+    background-image: url('../public/images/bannerfriday.jpg');
+  }
 }

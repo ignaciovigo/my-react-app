@@ -12,7 +12,7 @@ const Item = ({ product }) => {
 
   useEffect( () =>{
     setIsAdd(isExists(product.id))
-  },[cart])
+    },[cart])
 
   const handleClick = (e) =>{
     const btn = e.target.dataset.btn;
@@ -20,8 +20,8 @@ const Item = ({ product }) => {
     
   }
   return (
-    <Col xs={10} sm={5} md={4} lg={2} className='p-3 p-lg-1'>
-      <Card className={`h-100 effect-card ${isAdd ? 'bg-naranja': 'bg-negro'}`}>
+    <Col xs={10} sm={5} md={4} lg={2} className='p-3 p-lg-1 bg-negro'>
+      <Card className={`h-100 effect-card ${isAdd ? 'bg-naranja': 'bg-n'}`}>
         <Card.Body className='p-1 d-flex justify-content-center align-items-center'>
           <Card.Title className={`m-0 text-gris fs-6 text-center ${isAdd ? 'text-negro' : 'text-gris'}`}>
             {cutTitle(product.title)}
@@ -32,7 +32,7 @@ const Item = ({ product }) => {
           src={product.thumbnail}
           width='250px'
           height='250px'
-          className='rounded card-img'
+          className='rounded-circle card-img'
         />
         <Card.ImgOverlay className='d-flex justify-content-end align-items-end p-2 gap-2 overflow-hidden'>
           <Card.Text className='fs-6 fw-bold ff-base bg-negro rounded p-2 m-0 text-gris me-auto'>

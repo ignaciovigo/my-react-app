@@ -7,7 +7,7 @@ import { SiShopify } from 'react-icons/si'
 const NavBar = () => {
   return (
     <Navbar variant='dark' expand='sm' className='py-1 bg-negro'>
-      <Container fluid>
+      <Container>
         <Navbar.Brand>
           <Link to='/' className='text-decoration-none'>
             <Logo className='ms-sm-0 ms-md-5' img />
