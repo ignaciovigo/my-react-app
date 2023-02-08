@@ -35,4 +35,4 @@ si hay stock disponible, en caso de que no haya, el usuario sera avisado y no po
 - **sass**: Preprocesador de CSS.
 - **firebase**: Nos provee del servicio Cloud Firestore, una base de datos NoSQL, para almacenar, sincronizar y consultar fácilmente datos (como de los productos o ventas).
 
-*El proyecto se encuentra desplegado, para verlo (Click Aquí)[https://the-zitro-app.vercel.app/]*
+*El proyecto se encuentra desplegado, para verlo [Click Aquí](https://the-zitro-app.vercel.app/)*
