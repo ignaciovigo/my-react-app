@@ -1,5 +1,4 @@
-[![](https://svgur.com/i/q6b.svg)](https://the-zitro-app.vercel.app/)
-# Bienvenido al repositorio del proyecto Zitro
+# Bienvenido al repositorio del proyecto  [![](https://svgur.com/i/q6b.svg)](https://the-zitro-app.vercel.app/)
 ## Introducción
 El proyecto Zitro es una app web desarrollada con React ,mediante [create-react-app](https://create-react-app.dev/), que contiene las funcionalidades principales de un ecommerce, las cuales son:
 - Visualizar productos desde una base de datos para que el usuario pueda interactuar con ellos.
