@@ -42,7 +42,6 @@ const OrderForm = ({ cart, totalPrice, handleClose, restartCart }) => {
 
   const onSubmit = (dataUserForm) => {
     setIsLoading(true);
-    handleClose();
     sendOrder(dataUserForm, cart).then(ticket =>{
       restartCart();
       toast.info(`Thanks for buy! here's your ticket: ${ticket}`,{
@@ -50,6 +49,7 @@ const OrderForm = ({ cart, totalPrice, handleClose, restartCart }) => {
       })
       setIsLoading(false);
     })
+    handleClose();
   };
 
   return (
