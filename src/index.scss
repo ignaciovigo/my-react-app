@@ -364,35 +364,17 @@ main {
 
 
 @keyframes transitionBackground {
-  0%{
-    opacity: 0.5;
-  }
   15%{
     background-image: url('../public/images/banner3.jpg');
-    opacity: 1;
-
-  }
-  30%{
-    opacity: 0.5;
 
   }
   45%{
     background-image: url('../public/images/banner4.avif');
-    opacity: 1;
-  }
-  60%{
-    opacity: 0.5;
-
   }
   75%{
-    opacity: 1;
     background-image: url('../public/images/banner5.avif');
   }
-  90%{
-    opacity: 0.5;
-  }
   100%{
-    opacity: 1;
     background-image: url('../public/images/bannerfriday.jpg');
   }
 }
