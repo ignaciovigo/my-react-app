@@ -27,7 +27,7 @@ si hay stock disponible, en caso de que no haya, el usuario sera avisado y no po
 
 ### Dependecias del proyecto
 - *Ademas de las que brinda create-react-app*
-- **bootstrap y react-bootstrap** Para el uso de clases y componentes de boostrap.
+- **bootstrap y react-bootstrap** Para el uso de clases y componentes de bootstrap.
 - **react-hook-form**: Es un hook utilizado para facilitar la gestion de formularios.
 - **react-icons**: Nos provee de iconos.
 - **react-router-dom**: Utilizado para implementar el sistema de navegacion de la aplicacion.
