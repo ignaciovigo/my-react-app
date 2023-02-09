@@ -17,7 +17,6 @@ export function CartProvider ({ children }) {
   const [totalProducts, setTotalProducts] = useState(0)
 
   const addProduct = async (pdct, amount) => {
-    //add product to cart
     const newCart = [...cart]
     const index = newCart.findIndex((e) => e.id === pdct.id)
     if (index !== -1){
