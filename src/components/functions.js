@@ -10,3 +10,14 @@ export const arrayInSubArrays = (arr, maxElements) => {
   }
   return out;
 };
+
+export function saveToStorage ({cart,totalProducts}){
+  window.localStorage.setItem('cart',JSON.stringify(cart))
+  window.localStorage.setItem('total',totalProducts)
+}
+
+
+export function resetStorage(){
+  window.localStorage.removeItem('cart')
+  window.localStorage.removeItem('total')
+}
