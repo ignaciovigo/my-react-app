@@ -21,7 +21,7 @@ const Item = ({ product }) => {
   }
   return (
     <Col xs={10} sm={5} md={4} lg={2} className='p-3 p-lg-1 mx-2'>
-      <Card className={`h-100 effect-card ${isAdd ? 'bg-naranja': 'bg-n'}`}>
+      <Card className={`h-100 effect-card ${isAdd ? 'bg-naranja': 'bg-n'} p-2`}>
         <Card.Body className='p-1 d-flex justify-content-center align-items-center'>
           <Card.Title className={`m-0 text-gris fs-6 text-center ${isAdd ? 'text-negro' : 'text-gris'}`}>
             {cutTitle(product.title)}

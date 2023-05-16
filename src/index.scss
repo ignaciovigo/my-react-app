@@ -33,7 +33,7 @@ $colors: (
   "naranja": #f34213,
   "marron": #bc5d2e,
   "gris": #bbb8be,
-  "negro": #171718,
+  "negro": #111111,
   "n": #212529,
   "rojo-claro": #470e13,
   "danger":#dc3545,
@@ -102,7 +102,6 @@ body {
 }
 
 #root {
-  background-color: map-get($colors, "negro-claro");
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -114,6 +113,7 @@ header {
   z-index: 1001;
 }
 main {
+  background-color: #111111;
   display: flex;
   flex-grow: 1;
   flex-direction: column;
