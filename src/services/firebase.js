@@ -9,12 +9,12 @@ import {
 } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAI8lM-AzhtbazUW_FyhnTrwLw3CAOH4jg",
-  authDomain: "zitro-app-c15a5.firebaseapp.com",
-  projectId: "zitro-app-c15a5",
-  storageBucket: "zitro-app-c15a5.appspot.com",
-  messagingSenderId: "121264682166",
-  appId: "1:121264682166:web:a813cb11c8e06cc643a217",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);

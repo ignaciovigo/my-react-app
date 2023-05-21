@@ -6,6 +6,7 @@ import Loader from './Loader'
 
 const ItemListContainer = () => {
   const urlParams = useParams()
+  console.log(`params : ${urlParams.categoryId}`)
   const { products,isLoading } = useProducts(urlParams,'category','==',urlParams.categoryId)
   
   return (
