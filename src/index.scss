@@ -355,6 +355,7 @@ main {
   @extend .backcarousel-1;
   background-image: url('../public/images/bannerfriday.jpg');
   width: 100%;
+  object-fit: cover;
   animation-name: transitionBackground;
   animation-duration: 16s;
   animation-timing-function: ease;
@@ -362,6 +363,41 @@ main {
   animation-delay: 2s;
 }
 
+input[type='range'] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #2e2e3a; /* Color negro-claro */
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #f34213; /* Color naranja */
+  cursor: pointer;
+  transform: translateX(-50%); /* Centrar horizontalmente */
+}
+
+.form-group select:active,
+ .form-group option:active,
+  .form-group select:focus,
+   .form-group option:focus,
+   .form-group select:focus-visible, .form-group option:focus-visible{
+  background-color: #212529,;
+  color: #f34213 ;
+}
+
+select option:checked {
+  color: red;
+}
 
 @keyframes transitionBackground {
   15%{

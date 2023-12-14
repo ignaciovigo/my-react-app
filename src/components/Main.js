@@ -11,7 +11,7 @@ const Main = () => {
       <SubNavBar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/products' element={<ItemListContainer />} />
+        <Route path='/products' element={<ItemListContainer withFilter />} />
         <Route path='/category/:categoryId' element={<ItemListContainer />} />
         <Route path='/item/:id' element={<ItemDetailContainer />} />
         <Route path='/cart' element={<Cart />} />

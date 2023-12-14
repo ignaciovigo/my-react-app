@@ -1,15 +1,18 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "../services/firebase";
+import useFilters from "./useFilters";
 
 export default function useProducts(
   urlParams,
   fieldPath,
   opStr,
-  valueComparison
+  valueComparison,
+  withFilter
 ) {
   const [products, setProducts] = useState([]);
   const [isLoading,setIsLoading] = useState(true)
+  const { filters, setFilters, filterProducts } = useFilters();
   useEffect(() => {
     const getProducts = async () => {
       try {
@@ -31,14 +34,20 @@ export default function useProducts(
           productData.id = e.id;
           return productData;
         });
-        setProducts(doc);
+
+        if(withFilter){
+          let products = filterProducts(doc)
+          setProducts(products)
+        } else{
+          setProducts(doc);
+        }
         setIsLoading(false)
       } catch (err) {
         console.error(err, err.message);
       }
     };
     getProducts();
-  }, [urlParams]);
+  }, [urlParams,filters.minPrice, filters.category]);
 
-  return { products,isLoading };
+  return { products,isLoading, filters,setFilters };
 }

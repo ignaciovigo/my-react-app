@@ -7,10 +7,10 @@ import { arrayInSubArrays } from "./functions";
 
 function CarouselProducts({ fieldPath, opStr, value, maxCards }) {
   const { products } = useProducts(null, fieldPath, opStr, value);
-
   const newPart = arrayInSubArrays(products, maxCards);
   return (
     <Carousel
+
       indicators={false}
       wrap={false}
       className='w-100'
